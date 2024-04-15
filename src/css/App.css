@@ -1,0 +1,323 @@
+.App {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  background-color: #f7f7f2;
+  font-family: "Poppins";
+}
+
+.header {
+  display: flex;
+}
+
+.line {
+  height: 18px;
+  width: 4px;
+  background-color: #030064;
+  align-self: flex-end;
+}
+
+.header-text-cont {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: flex-start;
+  margin-left: 7px;
+  font-size: 16px;
+  color: #030064;
+}
+
+.line-cont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100px;
+  width: 4%;
+  color: #030064;
+}
+
+.header p {
+  margin: 0;
+  font-weight: 600;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.body {
+  display: flex;
+  height: 100vh;
+  justify-content: space-around;
+}
+
+.list-main-cont {
+  width: 100%;
+  border: 1px solid black;
+}
+
+.input-cont {
+  border: 1px solid black;
+  display: flex;
+  height: 30vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px 40px 30px 40px;
+  background: rgba(255, 255, 255, 0.19);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(7.9px);
+  -webkit-backdrop-filter: blur(7.9px);
+  border: 1px solid rgba(255, 255, 255, 0.71);
+}
+
+.task-cont {
+  width: 60%;
+  padding: 10px;
+  height: 80vh;
+  background: rgba(255, 255, 255, 0.19);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(7.9px);
+  -webkit-backdrop-filter: blur(7.9px);
+  border: 1px solid rgba(255, 255, 255, 0.71);
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+.task-tb {
+  width: 100%;
+  padding: 10px;
+}
+
+.task-tb tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.task-tb td {
+  font-size: 13px;
+  align-items: center;
+  justify-content: center;
+}
+
+.task-tb th {
+  font-size: 15px;
+  padding-bottom: 10px;
+  color: #014470;
+}
+
+.status-drop-cont {
+  padding: 0 10px;
+  background-color: #f5f3f3;
+  border: 1px solid #014470;
+  border-radius: 10px 10px 0 0;
+  border-bottom: none;
+  font-family: "Poppins";
+  display: flex;
+}
+
+.status-drop-cont h4 {
+  font-size: 12px;
+  color: rgb(164, 162, 162);
+}
+
+.status-drop {
+  background: none;
+  color: #014470;
+  border: none;
+  border-bottom: none;
+  font-family: "Poppins";
+  display: flex;
+  font-size: 12px;
+}
+
+.dropdown-cont {
+  width: 100%;
+  display: flex;
+  margin-left: 60px;
+  gap: 10px;
+}
+
+.list-main-cont {
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.19);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(7.9px);
+  -webkit-backdrop-filter: blur(7.9px);
+  border: 1px solid rgba(255, 255, 255, 0.71);
+  padding: 10px 0;
+  margin-bottom: 10px;
+}
+
+.f-cont {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.filterCont {
+  width: 100%;
+  display: flex;
+  margin-left: 80px;
+  gap: 3px;
+}
+
+.filterCont button {
+  width: 100px;
+  padding: 10px 0;
+  border: none;
+  background-color: #014470;
+  color: white;
+  font-family: "Poppins";
+}
+
+.filterCont button:nth-child(1) {
+  border-top-left-radius: 14px;
+  border: none;
+}
+
+.filterCont button:nth-child(3) {
+  border-top-right-radius: 14px;
+  border: none;
+}
+
+.s-cont {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 3vh;
+  margin-bottom: 10px;
+}
+
+.task-date {
+  margin-right: 20px;
+  font-size: 9px;
+}
+
+.task-status-p {
+  margin-left: 20px;
+  font-size: 10px;
+  color: rgb(255, 255, 255);
+  border: 1px solid rgb(245, 137, 137);
+  padding: 2px 17.5px;
+  border-radius: 30px;
+  background-color: rgb(245, 137, 137);
+}
+
+.input-cont h3 {
+  margin: 5px 0;
+  font-size: 15px;
+  color: #001e3b;
+}
+
+.task-status-td {
+  width: 13%;
+}
+
+.task-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 80%;
+  word-break: break-word;
+}
+
+.task-title {
+  font-size: 14px;
+  color: #030064;
+}
+
+.task-description {
+  font-size: 12px;
+  word-break: break-word;
+}
+
+label {
+  align-self: flex-start;
+  color: #001e3b;
+  font-weight: 400;
+  font-size: 12px;
+}
+
+.delete-btn {
+  align-self: flex-start;
+  margin-right: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.taskTitle {
+  word-break: break-word;
+  width: 30%;
+}
+
+.edit-btn {
+  align-self: flex-start;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.complete-btn,
+.pending-btn {
+  border: none;
+  cursor: pointer;
+  background: none;
+}
+
+input[type="text"] {
+  margin: 10px 30px;
+  width: 300px;
+  padding: 7px;
+  font-size: 13px;
+  border-width: 1px;
+  border-color: #0b5193;
+  background-color: #ffffff;
+  color: #000000;
+  border-style: solid;
+  border-radius: 5px;
+  box-shadow: -1px 0px 2px rgba(66, 66, 66, 0.56);
+}
+
+.right-cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 50px;
+  align-items: flex-end;
+}
+
+.add-btn {
+  background: #014470;
+  -webkit-border-radius: 9;
+  -moz-border-radius: 9;
+  border-radius: 9px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 10px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  font-family: "Poppins";
+  width: 85%;
+}
+
+.add-btn:hover {
+  background: #3cb0fd;
+  text-decoration: none;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
