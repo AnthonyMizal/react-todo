@@ -14,6 +14,7 @@ export function Todo() {
   const [statusFilter, setStatusFilter] = useState<string>("all");
   const [sortBy, setSortBy] = useState<string>("all");
   const [task, setTask] = useState<string>("");
+  const [category, setCategory] = useState<string>("Others");
   const [taskEditable, setEditable] = useState<string | null>(null);
   const [editedTask, setEditedTask] = useState<string>("");
   const storedTodoList = localStorage.getItem("todoList");
@@ -27,7 +28,7 @@ export function Todo() {
   function swalError() {
     Swal.fire({
       title: "Error!",
-      text: "Please type a task title and description!",
+      text: "Please type a task title and category!",
       icon: "error",
       confirmButtonText: "OK",
     });
@@ -46,6 +47,7 @@ export function Todo() {
       taskID: uuidV4(),
       taskDate: new Date(),
       taskTitle: task,
+      taskCategory: category,
       taskStatus: false,
     };
 
@@ -121,6 +123,10 @@ export function Todo() {
     setStatusFilter(val.target.value);
   }
 
+  function handleCategory(val: ChangeEvent<HTMLSelectElement>) {
+    setCategory(val.target.value);
+  }
+
   function sortType(val: ChangeEvent<HTMLSelectElement>) {
     setSortBy(val.target.value);
   }
@@ -165,7 +171,7 @@ export function Todo() {
           >
             <option value="all">Date(Desc)</option>
             <option value="date"> Date(Asc)</option>
-            <option value="completed">Completed</option>
+            <option value="A-Z">A-Z(Title)</option>
           </select>
         </div>
       </div>
@@ -177,6 +183,7 @@ export function Todo() {
               <tr>
                 <th>Action</th>
                 <th>Title</th>
+                <th>Category</th>
                 <th>Status</th>
                 <th>Date</th>
                 <th>Edit | Delete</th>
@@ -202,6 +209,24 @@ export function Todo() {
         <div className="input-cont">
           <h3>Create a Task</h3>
           <label htmlFor="taskTitle">Task Title:</label>
+          <div className="category-main">
+            <div className="category-drop-cont">
+              <h4>Category:</h4>
+              <select
+                name="status"
+                id="status"
+                value={category}
+                onChange={handleCategory}
+                className="category-drop"
+              >
+                <option value="Others">Others</option>
+                <option value="Work">Work</option>
+                <option value="School">School</option>
+                <option value="Chores">Chores</option>
+              </select>
+            </div>
+          </div>
+
           <input
             type="text"
             id="taskTitle"
@@ -209,6 +234,7 @@ export function Todo() {
             onChange={handleInputTitle}
             placeholder="Type here the title..."
           />
+
           <button className="add-btn" onClick={addTask}>
             Add Task
           </button>

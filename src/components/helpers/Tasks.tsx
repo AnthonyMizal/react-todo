@@ -37,6 +37,8 @@ export function Tasks({
         return dateA.getTime() - dateB.getTime();
       } else if (sortBy === "all") {
         return dateB.getTime() - dateA.getTime();
+      } else if (sortBy === "A-Z") {
+        return a.taskTitle.localeCompare(b.taskTitle);
       }
 
       return dateA.getTime() - dateB.getTime();
@@ -71,7 +73,7 @@ export function Tasks({
           ) : (
             <td className="taskTitle">{task.taskTitle}</td>
           )}
-
+          <td className="taskCategory">{task.taskCategory}</td>
           <td className="task-status-td">
             <div
               className="task-status"

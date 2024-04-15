@@ -2,6 +2,7 @@ export type TaskTypes = {
   taskID: string;
   taskDate: Date;
   taskTitle: string;
+  taskCategory: string;
   taskStatus: boolean;
 };
 
