@@ -2,7 +2,6 @@ export type TaskTypes = {
   taskID: string;
   taskDate: Date;
   taskTitle: string;
-  taskCategory: string;
   taskStatus: boolean;
 };
 
@@ -10,7 +9,6 @@ export type TasksProps = {
   todoList: TaskTypes[];
   statusFilter: string;
   editedTask: string;
-  sortBy: string;
   taskEditable: string | null;
   editButton: (id: string) => void;
   updateStatus: (id: string) => void;

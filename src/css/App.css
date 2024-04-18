@@ -57,24 +57,52 @@
   border: 1px solid black;
 }
 
-.input-cont {
-  border: 1px solid black;
+.dropdown-cont {
+  width: 100%;
   display: flex;
-  height: 30vh;
   justify-content: center;
+}
+
+.dropdown-scont {
+  width: 50%;
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.input-cont {
+  display: flex;
   align-items: center;
-  flex-direction: column;
-  padding: 10px 40px 30px 40px;
-  background: rgba(255, 255, 255, 0.19);
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(7.9px);
-  -webkit-backdrop-filter: blur(7.9px);
-  border: 1px solid rgba(255, 255, 255, 0.71);
+}
+
+input[type="text"] {
+  width: 300px;
+  padding: 7px;
+  font-size: 13px;
+  border-width: 1px;
+  border-color: #0b5193;
+  background-color: #ffffff;
+  color: #000000;
+  border-style: solid;
+  border-radius: 7px 0 0 7px;
+  box-shadow: -1px 0px 2px rgba(66, 66, 66, 0.56);
+}
+
+.add-btn {
+  background: #014470;
+  padding: 13px 10px;
+  -webkit-border-radius: 9;
+  -moz-border-radius: 9;
+  border-radius: 0 7px 7px 0;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 10px;
+  text-decoration: none;
+  font-family: "Poppins";
+  width: 25%;
 }
 
 .task-cont {
-  width: 60%;
   padding: 10px;
   height: 80vh;
   background: rgba(255, 255, 255, 0.19);
@@ -83,17 +111,22 @@
   backdrop-filter: blur(7.9px);
   -webkit-backdrop-filter: blur(7.9px);
   border: 1px solid rgba(255, 255, 255, 0.71);
-  overflow: scroll;
-  overflow-x: hidden;
+  overflow-x: auto;
 }
 
 .task-tb {
-  width: 100%;
+  width: 800px;
   padding: 10px;
+  border-spacing: 0;
 }
 
 .task-tb tr:nth-child(even) {
   background-color: #dddddd;
+}
+
+.tr-cont td {
+  padding: 10px 0;
+  border: none;
 }
 
 .task-tb td {
@@ -163,13 +196,6 @@
   font-family: "Poppins";
   display: flex;
   font-size: 12px;
-}
-
-.dropdown-cont {
-  width: 100%;
-  display: flex;
-  margin-left: 60px;
-  gap: 10px;
 }
 
 .list-main-cont {
@@ -309,20 +335,6 @@ label {
   background: none;
 }
 
-input[type="text"] {
-  margin: 10px 30px;
-  width: 300px;
-  padding: 7px;
-  font-size: 13px;
-  border-width: 1px;
-  border-color: #0b5193;
-  background-color: #ffffff;
-  color: #000000;
-  border-style: solid;
-  border-radius: 5px;
-  box-shadow: -1px 0px 2px rgba(66, 66, 66, 0.56);
-}
-
 .right-cont {
   display: flex;
   flex-direction: column;
@@ -331,46 +343,13 @@ input[type="text"] {
   align-items: flex-end;
 }
 
-.add-btn {
-  background: #014470;
-  -webkit-border-radius: 9;
-  -moz-border-radius: 9;
-  border-radius: 9px;
-  font-family: Arial;
-  color: #ffffff;
-  font-size: 10px;
-  padding: 10px 20px 10px 20px;
-  text-decoration: none;
-  font-family: "Poppins";
-  width: 85%;
-}
-
 .add-btn:hover {
   background: #3cb0fd;
   text-decoration: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 @media screen and (max-width: 1068px) {
   .body {
-    flex-direction: column;
-    padding: 0 30px;
-    gap: 10px;
-  }
-  .input-cont {
-    order: 1;
-  }
-  .task-cont {
-    order: 2;
-    width: 100%;
-    overflow-x: visible;
+    padding: 0 20px;
   }
 }

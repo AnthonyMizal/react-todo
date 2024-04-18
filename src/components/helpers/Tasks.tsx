@@ -18,36 +18,20 @@ export function Tasks({
   taskEditable,
   statusFilter,
   editedTask,
-  sortBy,
 }: TasksProps) {
-  const filteredTasks = todoList
-    .filter((task) => {
-      if (statusFilter === "completed") {
-        return task.taskStatus;
-      } else if (statusFilter === "pending") {
-        return !task.taskStatus;
-      }
-      return true;
-    })
-    .sort((a, b) => {
-      const dateA = new Date(a.taskDate);
-      const dateB = new Date(b.taskDate);
-
-      if (sortBy === "date") {
-        return dateA.getTime() - dateB.getTime();
-      } else if (sortBy === "all") {
-        return dateB.getTime() - dateA.getTime();
-      } else if (sortBy === "A-Z") {
-        return a.taskTitle.localeCompare(b.taskTitle);
-      }
-
-      return dateA.getTime() - dateB.getTime();
-    });
+  const filteredTasks = todoList.filter((task) => {
+    if (statusFilter === "completed") {
+      return task.taskStatus;
+    } else if (statusFilter === "pending") {
+      return !task.taskStatus;
+    }
+    return true;
+  });
 
   return (
     <>
       {filteredTasks.map((task) => (
-        <tr key={task.taskID}>
+        <tr key={task.taskID} className="tr-cont">
           <td>
             {task.taskStatus ? (
               <button
@@ -69,11 +53,12 @@ export function Tasks({
             <input
               value={editedTask}
               onChange={(e) => handleTaskTitleChange(e.target.value)}
+              autoFocus
             ></input>
           ) : (
             <td className="taskTitle">{task.taskTitle}</td>
           )}
-          <td className="taskCategory">{task.taskCategory}</td>
+
           <td className="task-status-td">
             <div
               className="task-status"
@@ -113,7 +98,4 @@ export function Tasks({
       ))}
     </>
   );
-}
-function elif(arg0: boolean) {
-  throw new Error("Function not implemented.");
 }
