@@ -50,13 +50,17 @@ export function Tasks({
             )}
           </td>
           {taskEditable === task.taskID ? (
-            <input
-              value={editedTask}
-              onChange={(e) => handleTaskTitleChange(e.target.value)}
-              autoFocus
-            ></input>
+            <td>
+              <input
+                value={editedTask}
+                onChange={(e) => handleTaskTitleChange(e.target.value)}
+                autoFocus
+              />
+            </td>
           ) : (
-            <td className="taskTitle">{task.taskTitle}</td>
+            <td className="taskTitle" onClick={() => editButton(task.taskID)}>
+              {task.taskTitle}
+            </td>
           )}
 
           <td className="task-status-td">

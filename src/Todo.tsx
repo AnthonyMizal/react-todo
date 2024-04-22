@@ -1,13 +1,15 @@
-import React, { useState, ChangeEvent, useEffect } from "react";
+import React, { useState, ChangeEvent, useEffect, useRef } from "react";
 import { v4 as uuidV4 } from "uuid";
 import { TaskTypes } from "./Types";
 import { Tasks } from "./components/helpers/Tasks";
 import Swal from "sweetalert2";
+import { log } from "console";
 
 export function Todo() {
+  const inputRef = useRef<HTMLInputElement>(null);
+  const task = useRef<string>("");
   const [todoList, setTodoList] = useState<TaskTypes[]>([]);
   const [statusFilter, setStatusFilter] = useState<string>("all");
-  const [task, setTask] = useState<string>("");
   const [taskEditable, setEditable] = useState<string | null>(null);
   const [editedTask, setEditedTask] = useState<string>("");
   const storedTodoList = localStorage.getItem("todoList");
@@ -27,19 +29,22 @@ export function Todo() {
     });
   }
 
-  const handleInputTitle = (event: ChangeEvent<HTMLInputElement>) => {
-    setTask(event.target.value);
+  const inputTitleHandleChange = () => {
+    if (inputRef.current) {
+      task.current = inputRef.current.value;
+    }
   };
 
   const handleTaskTitleChange = (newTitle: string) => {
     setEditedTask(newTitle);
   };
 
-  const addTask = () => {
+  const addTask = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
     const newTask = {
       taskID: uuidV4(),
       taskDate: new Date(),
-      taskTitle: task,
+      taskTitle: task.current,
       taskStatus: false,
     };
 
@@ -47,7 +52,10 @@ export function Todo() {
       swalError();
     } else {
       setTodoList([...todoList, newTask]);
-      setTask("");
+      task.current = "";
+      if (inputRef.current) {
+        inputRef.current.value = "";
+      }
     }
   };
 
@@ -145,19 +153,19 @@ export function Todo() {
               <option value="completed">Completed</option>
             </select>
           </div>
-          <div className="input-cont">
+
+          <form className="input-cont" onSubmit={addTask}>
             <input
               type="text"
               id="taskTitle"
-              value={task}
-              onChange={handleInputTitle}
+              ref={inputRef}
+              onChange={inputTitleHandleChange}
               placeholder="Type here the title..."
             />
-
-            <button className="add-btn" onClick={addTask}>
+            <button className="add-btn" type="submit">
               Add Task
             </button>
-          </div>
+          </form>
         </div>
       </div>
 
