@@ -46,7 +46,7 @@ export const useManageTodo = () => {
     } else {
       setTodoList([...todoList, newTask]);
       task.current = "";
-      toast.success("Task has been created");
+      toast.success("Task has been created.");
       if (inputRef.current) {
         inputRef.current.value = "";
       }
@@ -56,6 +56,7 @@ export const useManageTodo = () => {
   const deleteTask = (id: string) => {
     const updatedTask = todoList.filter((todoList) => todoList.taskID !== id);
     setTodoList(updatedTask);
+    toast.success("Task has been deleted.");
   };
 
   const editButton = (id: string) => {

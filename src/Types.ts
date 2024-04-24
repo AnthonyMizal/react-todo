@@ -16,3 +16,5 @@ export type TasksProps = {
   handleTaskTitleChange: (id: string) => void;
   saveEditedTask: (id: string) => void;
 };
+
+
