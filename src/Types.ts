@@ -1,6 +1,7 @@
 export type TaskTypes = {
   taskID: string;
   taskDate: Date;
+  taskCategory: string;
   taskTitle: string;
   taskStatus: boolean;
 };
@@ -17,4 +18,11 @@ export type TasksProps = {
   saveEditedTask: (id: string) => void;
 };
 
-
+export type StatusState = {
+  statusFilter: string;
+  setStatusFilter: (val: string) => void;
+};
+export type Todostore = {
+  todoList: TaskTypes[];
+  setTodoList: (tasks: TaskTypes[]) => void;
+};

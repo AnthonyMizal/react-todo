@@ -73,6 +73,17 @@
 .input-cont {
   display: flex;
   align-items: center;
+  background-color: white;
+  padding-left: 10px;
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 7px 0 0 7px;
+  box-shadow: -1px 0px 2px rgba(66, 66, 66, 0.56);
+}
+
+.form-cont {
+  display: flex;
+  align-items: center;
 }
 
 input[type="text"] {
@@ -82,10 +93,7 @@ input[type="text"] {
   border-width: 1px;
   border-color: #0b5193;
   background-color: #ffffff;
-  color: #000000;
-  border-style: solid;
-  border-radius: 7px 0 0 7px;
-  box-shadow: -1px 0px 2px rgba(66, 66, 66, 0.56);
+  border: none;
 }
 
 .add-btn {
@@ -179,9 +187,7 @@ input[type="text"] {
 }
 
 .category-drop {
-  background: none;
   color: #014470;
-  border: none;
   border-bottom: none;
   font-family: "Poppins";
   display: flex;

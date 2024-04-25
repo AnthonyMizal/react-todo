@@ -1,17 +1,17 @@
 import React, { useState, ChangeEvent, useEffect, useRef } from "react";
 import { v4 as uuidV4 } from "uuid";
-import { TaskTypes } from "../../Types";
 import { toast } from "sonner";
+import { useStatusFilter, useTodo } from "./store";
 
 export const useManageTodo = () => {
   const inputRef = useRef<HTMLInputElement>(null);
   const task = useRef<string>("");
-  const [todoList, setTodoList] = useState<TaskTypes[]>([]);
-  const [statusFilter, setStatusFilter] = useState<string>("all");
   const [taskEditable, setEditable] = useState<string | null>(null);
   const [editedTask, setEditedTask] = useState<string>("");
   const storedTodoList = localStorage.getItem("todoList");
-
+  const [category, setCategory] = useState<string>("Other");
+  const { statusFilter, setStatusFilter } = useStatusFilter();
+  const { todoList, setTodoList } = useTodo();
   useEffect(() => {
     if (storedTodoList) {
       setTodoList(JSON.parse(storedTodoList));
@@ -37,6 +37,7 @@ export const useManageTodo = () => {
     const newTask = {
       taskID: uuidV4(),
       taskDate: new Date(),
+      taskCategory: category,
       taskTitle: task.current,
       taskStatus: false,
     };
@@ -100,6 +101,10 @@ export const useManageTodo = () => {
     setStatusFilter(val.target.value);
   };
 
+  const chooseCategory = (val: ChangeEvent<HTMLSelectElement>) => {
+    setCategory(val.target.value);
+  };
+
   return {
     inputRef,
     task,
@@ -108,6 +113,7 @@ export const useManageTodo = () => {
     taskEditable,
     editedTask,
     storedTodoList,
+    category,
     inputTitleHandleChange,
     handleTaskTitleChange,
     addTask,
@@ -117,5 +123,6 @@ export const useManageTodo = () => {
     saveEditedTask,
     filterStatus,
     setTodoList,
+    chooseCategory,
   };
 };

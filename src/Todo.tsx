@@ -7,6 +7,7 @@ export function Todo() {
     statusFilter,
     taskEditable,
     editedTask,
+    category,
     inputTitleHandleChange,
     handleTaskTitleChange,
     addTask,
@@ -15,6 +16,7 @@ export function Todo() {
     updateStatus,
     saveEditedTask,
     filterStatus,
+    chooseCategory,
   } = useManageTodo();
 
   return (
@@ -44,14 +46,28 @@ export function Todo() {
             </select>
           </div>
 
-          <form className="input-cont" onSubmit={addTask}>
-            <input
-              type="text"
-              id="taskTitle"  
-              ref={inputRef}
-              onChange={inputTitleHandleChange}
-              placeholder="Type here the title..."
-            />
+          <form className="form-cont" onSubmit={addTask}>
+            <div className="input-cont">
+              <select
+                name="category"
+                id="status"
+                value={category}
+                onChange={chooseCategory}
+                className="status-drop"
+              >
+                <option value="Other"> Other</option>
+                <option value="Work">Work</option>
+                <option value="School">School</option>
+              </select>
+              <input
+                type="text"
+                id="taskTitle"
+                ref={inputRef}
+                onChange={inputTitleHandleChange}
+                placeholder="Type here the title..."
+              />
+            </div>
+
             <button className="add-btn" type="submit">
               Add Task
             </button>
@@ -66,6 +82,7 @@ export function Todo() {
               <tr>
                 <th>Action</th>
                 <th>Title</th>
+                <th>Category</th>
                 <th>Status</th>
                 <th>Date</th>
                 <th>Edit | Delete</th>
