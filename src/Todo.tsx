@@ -47,7 +47,7 @@ export function Todo() {
           <form className="input-cont" onSubmit={addTask}>
             <input
               type="text"
-              id="taskTitle"
+              id="taskTitle"  
               ref={inputRef}
               onChange={inputTitleHandleChange}
               placeholder="Type here the title..."
