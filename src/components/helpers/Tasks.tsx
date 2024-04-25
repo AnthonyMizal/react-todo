@@ -1,4 +1,3 @@
-import React from "react";
 import {
   BsFillTrashFill,
   BsCheckCircle,
@@ -62,7 +61,7 @@ export function Tasks({
               {task.taskTitle}
             </td>
           )}
-
+          <td>{task.taskCategory}</td>
           <td className="task-status-td">
             <div
               className="task-status"
