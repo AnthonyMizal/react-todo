@@ -10,6 +10,7 @@ export const useManageTodo = () => {
   const [editedTask, setEditedTask] = useState<string>("");
   const storedTodoList = localStorage.getItem("todoList");
   const [category, setCategory] = useState<string>("Other");
+  const [categoryFilter, setCategoryFilter] = useState<string>("All");
   const { statusFilter, setStatusFilter } = useStatusFilter();
   const { todoList, setTodoList } = useTodo();
   useEffect(() => {
@@ -42,7 +43,6 @@ export const useManageTodo = () => {
       taskTitle: task.current,
       taskStatus: false,
     };
-
   };
 
   const deleteTask = (id: string) => {
@@ -96,6 +96,10 @@ export const useManageTodo = () => {
     setCategory(val.target.value);
   };
 
+  const filterCategory = (val: ChangeEvent<HTMLSelectElement>) => {
+    setCategoryFilter(val.target.value);
+  };
+
   return {
     inputRef,
     task,
@@ -105,6 +109,7 @@ export const useManageTodo = () => {
     editedTask,
     storedTodoList,
     category,
+    categoryFilter,
     inputTitleHandleChange,
     handleTaskTitleChange,
     addTask,
@@ -115,5 +120,6 @@ export const useManageTodo = () => {
     filterStatus,
     setTodoList,
     chooseCategory,
+    filterCategory,
   };
 };

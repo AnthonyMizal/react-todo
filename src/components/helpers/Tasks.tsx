@@ -15,21 +15,31 @@ export function Tasks({
   handleTaskTitleChange,
   saveEditedTask,
   taskEditable,
+  categoryFilter,
   statusFilter,
   editedTask,
 }: TasksProps) {
-  const filteredTasks = todoList.filter((task) => {
+  const filteredTasks = () => {
+    var filteredTasks = todoList;
+
     if (statusFilter === "completed") {
-      return task.taskStatus;
+      filteredTasks = filteredTasks.filter((task) => task.taskStatus);
     } else if (statusFilter === "pending") {
-      return !task.taskStatus;
+      filteredTasks = filteredTasks.filter((task) => !task.taskStatus);
     }
-    return true;
-  });
+
+    if (categoryFilter !== "All") {
+      filteredTasks = filteredTasks.filter(
+        (task) => task.taskCategory === categoryFilter
+      );
+    }
+
+    return filteredTasks;
+  };
 
   return (
     <>
-      {filteredTasks.map((task) => (
+      {filteredTasks().map((task) => (
         <tr key={task.taskID} className="tr-cont">
           <td>
             {task.taskStatus ? (
