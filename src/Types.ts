@@ -22,7 +22,4 @@ export type StatusState = {
   statusFilter: string;
   setStatusFilter: (val: string) => void;
 };
-export type Todostore = {
-  todoList: TaskTypes[];
-  setTodoList: (tasks: TaskTypes[]) => void;
-};
+

@@ -1,5 +1,6 @@
 import { Tasks } from "./components/helpers/Tasks";
 import { useManageTodo } from "./components/helpers/useManageTodo";
+import { useTodo } from "./components/helpers/store";
 export function Todo() {
   const {
     inputRef,
@@ -8,9 +9,9 @@ export function Todo() {
     taskEditable,
     editedTask,
     category,
+    task,
     inputTitleHandleChange,
     handleTaskTitleChange,
-    addTask,
     deleteTask,
     editButton,
     updateStatus,
@@ -18,6 +19,8 @@ export function Todo() {
     filterStatus,
     chooseCategory,
   } = useManageTodo();
+
+  const { addTask } = useTodo();
 
   return (
     <div className="main-cont">
@@ -46,7 +49,7 @@ export function Todo() {
             </select>
           </div>
 
-          <form className="form-cont" onSubmit={addTask}>
+          <div className="form-cont">
             <div className="input-cont">
               <select
                 name="category"
@@ -68,10 +71,13 @@ export function Todo() {
               />
             </div>
 
-            <button className="add-btn" type="submit">
+            <button
+              className="add-btn"
+              onClick={() => addTask(task.current, category)}
+            >
               Add Task
             </button>
-          </form>
+          </div>
         </div>
       </div>
 

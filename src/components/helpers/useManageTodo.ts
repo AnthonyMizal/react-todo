@@ -34,6 +34,7 @@ export const useManageTodo = () => {
 
   const addTask = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
     const newTask = {
       taskID: uuidV4(),
       taskDate: new Date(),
@@ -42,16 +43,6 @@ export const useManageTodo = () => {
       taskStatus: false,
     };
 
-    if (newTask.taskTitle.trim() === "") {
-      toast.error("Please enter a task title!");
-    } else {
-      setTodoList([...todoList, newTask]);
-      task.current = "";
-      toast.success("Task has been created.");
-      if (inputRef.current) {
-        inputRef.current.value = "";
-      }
-    }
   };
 
   const deleteTask = (id: string) => {
