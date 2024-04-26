@@ -13,6 +13,7 @@ export type TasksProps = {
   taskEditable: string | null;
   editButton: (id: string) => void;
   updateStatus: (id: string) => void;
+  categoryFilter: string;
   deleteTask: (id: string) => void;
   handleTaskTitleChange: (id: string) => void;
   saveEditedTask: (id: string) => void;
@@ -22,4 +23,3 @@ export type StatusState = {
   statusFilter: string;
   setStatusFilter: (val: string) => void;
 };
-

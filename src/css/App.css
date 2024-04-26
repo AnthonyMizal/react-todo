@@ -64,10 +64,10 @@
 }
 
 .dropdown-scont {
-  width: 50%;
+  width: 100%;
   display: flex;
   gap: 10px;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .input-cont {
